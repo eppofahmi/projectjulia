@@ -15,8 +15,8 @@ cols = (:year, :month, :day, :dep_time, :dep_delay, :arr_time, :arr_delay, :tail
 flights = select(nycflights, cols);
 
 # Access the dimension of the data
-length(rows(flights))     #> 336776
-length(columns(flights))  #> 11
+length(rows(flights))
+length(columns(flights))
 
 # Accessing the Head of the Data
 println(select(flights, cols)[1:6]);
@@ -104,7 +104,7 @@ plot(
 )
 
 # To find the number of planes and the number of flights that go to each possible destination, run:
-destinations = groupby(
+destinations = JuliaDB.groupby(
     (
         planes = :tailnum => x -> length(unique(x)),
         flights = length
