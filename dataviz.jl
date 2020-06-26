@@ -61,7 +61,7 @@ Plots.plot(
 using StatsPlots, RDatasets
 gr()
 iris = dataset("datasets", "iris")
-@df iris scatter(
+StatsPlots.@df iris scatter(
     :SepalLength,
     :SepalWidth,
     group = :Species,
